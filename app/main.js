@@ -4,16 +4,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import store from './store'
-
-//ReactDOM.render(<App/>, document.getElementById('root'))
+import { Provider } from 'react-redux'
 
 const render = () =>
 	ReactDOM.render(
-		<App
-			value={store.getState()}
-			onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
-			onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
-		/>,
+		<Provider store={store}>
+			<App />
+		</Provider>,
 		document.getElementById('root')
 	)
 
